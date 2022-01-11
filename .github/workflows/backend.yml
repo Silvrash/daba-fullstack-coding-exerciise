@@ -21,6 +21,9 @@ jobs:
               with:
                   node-version: 14
             - uses: c-hive/gha-yarn-cache@v2
+              with:
+                directory: backend
+
             - name: Prepare common .env
               run: >
                   cd backend
