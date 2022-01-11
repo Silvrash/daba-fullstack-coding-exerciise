@@ -44,10 +44,10 @@ jobs:
                   echo 'CONNECTION_PASSWORD = ${{ secrets.CONNECTION_PASSWORD}}' >> backend/src/.env.test
 
                   echo 'CONNECTION_DATABASE = testDb' >> backend/src/.env.test
-                  
+
             - name: Setup test database schema
               run: >
-                  mysql --host 127.0.0.1 --port 3306 -uroot -p${{ secrets.CONNECTION_PASSWORD }} -e "create database 'testDb'"
+                  mysql --host 127.0.0.1 --port 3306 -uroot -p${{ secrets.CONNECTION_PASSWORD }} -e "create database testDb"
 
             - name: Install dependencies
               run: cd backend && yarn
