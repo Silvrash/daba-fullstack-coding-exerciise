@@ -12,11 +12,11 @@ export function useEditProfile() {
 
     const form = useForm<UpdateUserInput>({
         initialValues: {
-            email: currentUser?.email!,
-            name: currentUser?.name,
-            bio: currentUser?.bio,
-            phone: currentUser?.phone,
-            photo: currentUser?.photo,
+            email: currentUser?.email ?? "",
+            name: currentUser?.name ?? "",
+            bio: currentUser?.bio ?? "",
+            phone: currentUser?.phone ?? "",
+            photo: currentUser?.photo ?? "",
         },
         onSubmit,
         validationSchema: UpdateInfoValidationSchema,

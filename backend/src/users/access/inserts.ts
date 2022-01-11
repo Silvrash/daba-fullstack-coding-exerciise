@@ -7,7 +7,7 @@ export const insert = (data: UserEntity, updatePassword: Maybe<boolean>, knex: K
 	const fieldsToUpdate = ['name', 'photo', 'bio', 'phone', 'email'];
 	if (updatePassword) fieldsToUpdate.push('password');
 
-	return insertOrUpdate(knex, DB.users, data, fieldsToUpdate);
+	return insertOrUpdate(knex, DB.users, data, fieldsToUpdate, ['email']);
 };
 
 export const updateLastSignedIn = (userId: string, date: string, knex: Knex) => {

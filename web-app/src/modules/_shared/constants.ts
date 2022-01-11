@@ -2,7 +2,7 @@ const Constants = {
     APP_VERSION: require("../../../package.json").version,
     BASE_API_URL: {
         STAGING: "localhost:8080",
-        PRODUCTION: "https://pmt-gateway-dot-nodal-seer-287420.ue.r.appspot.com",
+        PRODUCTION: "benspace.herokuapp.com",
     },
     STORAGE_KEYS: {
 		JWT_TOKEN: 'interview.ben.aa.jwt',

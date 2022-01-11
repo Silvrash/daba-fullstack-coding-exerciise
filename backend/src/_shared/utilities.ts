@@ -85,8 +85,14 @@ export function makeId(size?: number) {
  * @param merge
  * @returns
  */
-export function insertOrUpdate(knex: Knex, table: string, data: any, merge: string[] = []) {
-	return knex(table).insert(data).onConflict().merge(merge);
+export function insertOrUpdate(
+	knex: Knex,
+	table: string,
+	data: any,
+	merge: string[] = [],
+	conflictColumns: string[] = [],
+) {
+	return knex(table).insert(data).onConflict(conflictColumns).merge(merge);
 }
 
 /**
