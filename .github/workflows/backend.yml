@@ -26,28 +26,25 @@ jobs:
 
             - name: Prepare common .env
               run: >
-                  cd backend
+                  echo 'PORT = ${{ secrets.PORT }}' >> ./backend/src/.env
 
-                  echo 'PORT = ${{ secrets.PORT }}' >> ./src/.env
+                  echo 'SECRET_KEY = ${{ secrets.SECRET_KEY }}' >> ./backend/src/.env
 
-                  echo 'SECRET_KEY = ${{ secrets.SECRET_KEY }}' >> ./src/.env
+                  echo 'FIREBASE_SERVICE_CONFIG = ${{ secrets.FIREBASE_SERVICE_CONFIG }}' >> ./backend/src/.env
 
-                  echo 'FIREBASE_SERVICE_CONFIG = ${{ secrets.FIREBASE_SERVICE_CONFIG }}' >> ./src/.env
-
-                  echo 'FIREBASE_STORAGE_BUCKET = ${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> ./src/.env
+                  echo 'FIREBASE_STORAGE_BUCKET = ${{ secrets.FIREBASE_STORAGE_BUCKET }}' >> ./backend/src/.env
             - name: Prepare .env.test
               run: >
-                  cd backend
+                  cp backend/src/.env backend/src/.env.test
 
-                  cp .env src/.env.test
+                  echo 'CONNECTION_HOST = localhost' >> backend/src/.env.test
 
-                  echo 'CONNECTION_HOST = localhost' >> src/.env.test
+                  echo 'CONNECTION_USER = root' >> backend/src/.env.test
 
-                  echo 'CONNECTION_USER = root' >> src/.env.test
+                  echo 'CONNECTION_PASSWORD = ${{ secrets.CONNECTION_PASSWORD}}' >> backend/src/.env.test
 
-                  echo 'CONNECTION_PASSWORD = ${{ secrets.CONNECTION_PASSWORD}}' >> src/.env.test
-
-                  echo 'CONNECTION_DATABASE = testDb' >> src/.env.test
+                  echo 'CONNECTION_DATABASE = testDb' >> backend/src/.env.test
+                  
             - name: Setup test database schema
               run: >
                   mysql --host 127.0.0.1 --port 3306 -uroot -p${{ secrets.CONNECTION_PASSWORD }} -e "create database 'testDb'"
