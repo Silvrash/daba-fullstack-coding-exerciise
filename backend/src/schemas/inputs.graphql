@@ -1,0 +1,18 @@
+input AddNewUserInput {
+	email: String!
+	password: String!
+}
+
+input VerifyEmailInput {
+	email: String!
+	password: String!
+}
+
+input UpdateUserInput {
+	email: String!
+	password: String
+	phone: String
+	photo: String
+	name: String
+	bio: String
+}

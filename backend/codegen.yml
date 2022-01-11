@@ -1,0 +1,17 @@
+overwrite: true
+schema: './src/schemas/*.graphql'
+documents: null
+generates:
+    ./src/_shared/schema.ts:
+        plugins:
+            - typescript
+            - typescript-resolvers
+        config:
+            declarationKind: 'interface'
+            useIndexSignature: true
+            wrapFieldDefinitions: true
+            noSchemaStitching: true
+            fieldWrapperValue: T
+            skipTypename: true
+            maybeValue: T | undefined | null
+            makeResolverTypeCallable: true

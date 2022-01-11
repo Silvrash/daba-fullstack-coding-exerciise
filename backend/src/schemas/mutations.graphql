@@ -1,0 +1,5 @@
+type Mutation {
+	verifyEmail(data: VerifyEmailInput!): AuthUser!
+	addNewUser(data: AddNewUserInput!): AuthUser!
+	updateUserInfo(data: UpdateUserInput!): User!
+}

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User select queries findByFilter should get all users 1`] = `"select * from \`users\`"`;
+
+exports[`User select queries findByFilter should get by email 1`] = `"select * from \`users\` where \`email\` = 'someone@gmail.com'"`;
+
+exports[`User select queries findByFilter should get users with ids 1`] = `"select * from \`users\` where (\`users\`.\`id\` in ('userId1', 'userId2'))"`;
+
+exports[`User select queries findByFilter should limit page data 1`] = `"select * from \`users\` limit 300 offset 300"`;
+
+exports[`User select queries findByFilter should search for user 1`] = `"select * from \`users\` where (\`users\`.\`name\` like 'searchQuery%' or \`users\`.\`email\` like 'searchQuery%' or \`users\`.\`phone\` like 'searchQuery%')"`;
+
+exports[`User select queries should get count query 1`] = `"select count(distinct users.id) as count from \`users\`"`;

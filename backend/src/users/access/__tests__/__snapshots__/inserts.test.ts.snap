@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User insert queries should insert user 1`] = `"insert into \`users\` (\`bio\`, \`email\`, \`id\`, \`lastSignInDate\`, \`name\`, \`password\`, \`phone\`, \`photo\`) values ('bio', 'email', 'id', 'lastSignInDate', 'name', 'password', 'phone', 'photo') on duplicate key update \`name\` = values(\`name\`), \`photo\` = values(\`photo\`), \`bio\` = values(\`bio\`), \`phone\` = values(\`phone\`), \`email\` = values(\`email\`)"`;
+
+exports[`User insert queries should insert user update password 1`] = `"insert into \`users\` (\`bio\`, \`email\`, \`id\`, \`lastSignInDate\`, \`name\`, \`password\`, \`phone\`, \`photo\`) values ('bio', 'email', 'id', 'lastSignInDate', 'name', 'password', 'phone', 'photo') on duplicate key update \`name\` = values(\`name\`), \`photo\` = values(\`photo\`), \`bio\` = values(\`bio\`), \`phone\` = values(\`phone\`), \`email\` = values(\`email\`), \`password\` = values(\`password\`)"`;
+
+exports[`User insert queries should update last signed in 1`] = `"update \`users\` set \`lastSignInDate\` = 'timestamp' where \`id\` = 'userId'"`;
