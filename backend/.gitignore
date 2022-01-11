@@ -1,5 +1,10 @@
-coverage
 node_modules
-**.log
+dist
 .env
-.env.test
+.env.*
+!.env.example
+app
+**.log
+coverage
+build/**
+.DS_Store

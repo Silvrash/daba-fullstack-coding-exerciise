@@ -2,7 +2,6 @@ const K = {
 	VERSION: 1,
 	IS_DEV: process.env.NODE_ENV !== 'production',
 	IS_TESTS: process.env.NODE_ENV === 'test',
-	MODE: process.env.MODE as 'production' | 'staging',
 	PORT: process.env.PORT ?? 6877,
 	SECRET_KEY: process.env.SECRET_KEY || '',
 	SUPPORTED_VERSIONS: {

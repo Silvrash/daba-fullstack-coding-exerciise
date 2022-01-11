@@ -17,8 +17,8 @@ const Home: React.FC = () => {
                 <Image
                     rounded
                     size="tiny"
-                    style={{objectFit: 'cover', width: '4rem', height: '4rem'}}
-                    src={currentUser?.photo ?? "https://via.placeholder.com/150"}
+                    style={{ objectFit: "cover", width: "4rem", height: "4rem" }}
+                    src={currentUser?.photo || "https://via.placeholder.com/150"}
                 />
             ),
         },

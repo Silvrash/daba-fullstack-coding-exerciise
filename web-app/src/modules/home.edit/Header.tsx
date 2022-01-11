@@ -1,11 +1,7 @@
-import { useHistory } from "react-router-dom";
-import { Button, Card } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import styled from "styled-components";
-import Constants from "../_shared/constants";
 
 const Header: React.FC = () => {
-    const history = useHistory();
-
     return (
         <StyledContent>
             <div className="profile menu-item">

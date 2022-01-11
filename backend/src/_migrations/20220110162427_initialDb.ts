@@ -1,11 +1,10 @@
 import { Knex } from 'knex';
-import { DB } from 'src/_shared/constants';
 
 export async function up(knex: Knex): Promise<void> {
-	return knex.schema.createTable(DB.users, (table) => {
+	return knex.schema.createTable('users', (table) => {
 		table.string('id', 36).primary();
 		table.string('email').unique().notNullable();
-		table.string('password').notNullable()
+		table.string('password').notNullable();
 		table.string('name');
 		table.string('photo');
 		table.string('bio');
@@ -15,5 +14,5 @@ export async function up(knex: Knex): Promise<void> {
 }
 
 export async function down(knex: Knex): Promise<void> {
-	return knex.schema.dropTable(DB.users);
+	return knex.schema.dropTable('users');
 }

@@ -20,7 +20,9 @@ const Footer: React.FC<FooterProps> = ({ membershipText, linkText, handleLink })
 
             <div className="or">
                 {membershipText}
-                <a onClick={handleLink}>{linkText}</a>
+                <a href="#/" onClick={handleLink}>
+                    {linkText}
+                </a>
             </div>
         </StyledDiv>
     );
