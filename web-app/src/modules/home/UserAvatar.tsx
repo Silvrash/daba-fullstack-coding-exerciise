@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Dropdown, DropdownItemProps, Image } from "semantic-ui-react";
-import { useCurrentUser, useTheme } from "../_shared/hooks";
+import { useCurrentUser } from "../_shared/hooks";
 
 const UserAvatar = () => {
     const { currentUser, logOut } = useCurrentUser();

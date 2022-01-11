@@ -1,16 +1,14 @@
 import { useHistory } from "react-router-dom";
-import { Button, Card, Form, Icon, Image } from "semantic-ui-react";
+import { Button, Card, Form, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import UserAvatar from "../home/UserAvatar";
 import Logo from "../_shared/assets/logo.png";
 import Constants from "../_shared/constants";
-import { useCurrentUser } from "../_shared/hooks";
 import Header from "./Header";
 import { useEditProfile } from "./hooks/useEditProfile";
 import ImagePicker from "./ImagePicker";
 
 const Edit: React.FC = () => {
-    const { currentUser } = useCurrentUser();
     const history = useHistory();
     const state = useEditProfile();
 
