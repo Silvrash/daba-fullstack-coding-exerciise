@@ -36,10 +36,13 @@
 <!-- OVERVIEW -->
 
 ## Overview
+<span>
 <img src="./screenshots/2.png" width="250">
 <img src="./screenshots/3.png" width="250">
 <img src="./screenshots/4.png" width="250">
 <img src="./screenshots/1.png" width="250">
+</span>
+
 
 Introduce your projects by taking a screenshot, video recordings or a gif. Try to tell us about the solution you built by answering the following:
 
