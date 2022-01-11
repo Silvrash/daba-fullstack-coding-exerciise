@@ -28,7 +28,7 @@ export const formatError = (err: GraphQLError): GraphQLFormattedError => {
 	const consoleError = R.defaultTo(defaultError, err.originalError?.stack);
 	logger.error(consoleError);
 
-	if (K.MODE === 'production') {
+	if (!K.IS_DEV) {
 		return {
 			message: is500 ? K.ERRORS.SOMETHING_WENT_WRONG : message,
 		};
