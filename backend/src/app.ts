@@ -27,8 +27,10 @@ export function createServer(app: Express): ApolloServer {
 	const apolloServer = new ApolloServer({
 		schema,
 		resolvers,
+		introspection: true,
+		playground: true,
 		// introspection: process.env.MODE != 'production',
-		// playground: process.env.MODE != 'production', enabled for preview
+		// playground: process.env.MODE != 'production', 
 
 		// application context
 		context: appContext,
