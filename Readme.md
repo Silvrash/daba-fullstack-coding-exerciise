@@ -75,5 +75,5 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/Silvrash/daba-fullstack-coding-exerciise.git
 ```
 
--   Goto [Readme.md](./backend/Readme) to setup the backend
--   Goto [Readme.md](./ui/Readme) to setup the frontend
+-   Goto [Readme.md](./backend/Readme.md) to setup the backend
+-   Goto [Readme.md](./ui/Readme.md) to setup the frontend
