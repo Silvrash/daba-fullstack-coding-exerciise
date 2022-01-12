@@ -57,8 +57,13 @@ const ImagePicker: React.FC<IProps> = (props) => {
         <StyledDiv onClick={() => imageFile.current?.click()}>
             <span className="photo">
                 <span className="image">
-                    <Image src={image || "https://via.placeholder.com/150"} size="tiny" rounded />
-                    <StyledIcon name="camera" size="big" style={{color: 'white'}}/>
+                    <Image
+                        src={image || "https://via.placeholder.com/150"}
+                        size="tiny"
+                        rounded
+                        style={{ width: "5rem", height: "5rem", objectFit: 'cover' }}
+                    />
+                    <StyledIcon name="camera" size="big" style={{ color: "white" }} />
                 </span>
                 CHANGE PHOTO
             </span>
@@ -75,8 +80,8 @@ const ImagePicker: React.FC<IProps> = (props) => {
 const StyledIcon = styled(Icon)`
     margin: auto !important;
     position: absolute;
-    left: 1.96rem;
-    top: -0.2rem;
+    left: 25%;
+    top: 0rem;
 `;
 
 const StyledDiv = styled.div`

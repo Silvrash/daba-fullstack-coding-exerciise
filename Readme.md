@@ -17,7 +17,7 @@
     </a>
     <span> | </span>
     <a href="https://benspace.herokuapp.com/graphql">
-      Backend
+      Backend (with Graphql Playground)
     </a>
   </h3>
 </div>

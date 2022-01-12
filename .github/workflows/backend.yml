@@ -52,21 +52,21 @@ jobs:
             - name: Install dependencies
               run: cd backend && yarn
  
-            # - name: Run test
-            #   run: cd backend && yarn test
+            - name: Run test
+              run: cd backend && yarn test
  
             - name: Build
               run: cd backend && yarn build
  
             - uses: akhileshns/heroku-deploy@v3.12.12
-              # if: github.ref != 'refs/heads/master'
+              if: github.ref == 'refs/heads/master'
               with:
                   heroku_api_key: "${{secrets.HEROKU_API_KEY}}"
-                  heroku_app_name: benspace
                   heroku_email: barkoafrasah@gmail.coms
                   justlogin: true
             
             - name: Push to Heroku
+              if: github.ref == 'refs/heads/master'
               run: >
                   git config --global user.email "barkoafrasah@gmail.com"
 

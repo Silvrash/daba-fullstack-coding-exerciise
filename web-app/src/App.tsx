@@ -8,8 +8,9 @@ import { ProtectedRoute, ProtectedRouteProps } from "./modules/_shared/component
 import Notifications from "./modules/_shared/components/Notifications";
 import { useTheme } from "./modules/_shared/hooks";
 
-function App() {
-    const { theme } = useTheme();
+const App = () => {
+    const { theme, isDark } = useTheme();
+    console.log(isDark, theme);
 
     function renderRoute(item: ProtectedRouteProps) {
         return <ProtectedRoute {...item} />;
@@ -31,6 +32,6 @@ function App() {
             <Notifications />
         </ThemeProvider>
     );
-}
+};
 
 export default App;

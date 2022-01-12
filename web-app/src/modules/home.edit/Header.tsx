@@ -15,7 +15,8 @@ const Header: React.FC = () => {
 };
 
 const StyledContent = styled(Card.Content)`
-    .profile .row {
+
+.profile .row {
         justify-content: space-between;
         align-items: center;
     }

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import appTheme from "../appTheme";
 import K from "../constants";
 
@@ -5,18 +6,19 @@ import K from "../constants";
 const prefersDarkTheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 export function useTheme() {
-    const themeMode:any = 'light'?? localStorage.getItem(K.STORAGE_KEYS.THEME_MODE);
+    const [themeMode, updateThemeMode] = useState(
+        localStorage.getItem(K.STORAGE_KEYS.THEME_MODE) ?? "light"
+    );
+
     const currentThemeMode =
         themeMode === "device" ? (prefersDarkTheme ? "dark" : "light") : themeMode;
 
     const colors = currentThemeMode === "light" ? appTheme.light : appTheme.dark;
 
-    function updateTheme(themeMode: "light" | "dark") {
+    function updateTheme(themeMode: "light" | "dark" | "device") {
+        updateThemeMode(themeMode);
         localStorage.setItem(K.STORAGE_KEYS.THEME_MODE, themeMode);
-    }
-
-    function toggleTheme() {
-        localStorage.setItem(K.STORAGE_KEYS.THEME_MODE, themeMode === "light" ? "dark" : "light");
+        window.location.reload();
     }
 
     return {
@@ -24,6 +26,5 @@ export function useTheme() {
         theme: colors,
         isDark: currentThemeMode !== "light",
         updateTheme,
-        toggleTheme,
     };
 }

@@ -1,7 +1,7 @@
 const Constants = {
     APP_VERSION: require("../../../package.json").version,
     BASE_API_URL: {
-        STAGING: "localhost:8080",
+        STAGING: "benspace.herokuapp.com",
         PRODUCTION: "benspace.herokuapp.com",
     },
     STORAGE_KEYS: {
