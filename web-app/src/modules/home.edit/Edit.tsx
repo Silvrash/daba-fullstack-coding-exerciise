@@ -3,6 +3,7 @@ import { Button, Card, Form, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import UserAvatar from "../home/UserAvatar";
 import Logo from "../_shared/assets/logo.png";
+import { FooterInfo } from "../_shared/components";
 import Constants from "../_shared/constants";
 import Header from "./Header";
 import { useEditProfile } from "./hooks/useEditProfile";
@@ -40,7 +41,7 @@ const Edit: React.FC = () => {
                             handleChange={state.handleChange}
                             error={state.getError("photo")}
                         />
-                        <Form onSubmit={state.handleSubmit}>
+                        <Form onSubmit={state.handleSubmit} autoComplete="none">
                             <Form.Input
                                 name="name"
                                 label="Name"
@@ -82,6 +83,7 @@ const Edit: React.FC = () => {
                                 label="Password"
                                 placeholder="Enter your new password..."
                                 type="password"
+                                autoComplete="new-password"
                                 value={state.password}
                                 onChange={state.handleChange}
                                 error={state.getError("password")}
@@ -98,6 +100,7 @@ const Edit: React.FC = () => {
                         </Form>
                     </Card.Content>
                 </Card>
+                <FooterInfo />
             </div>
         </StyledDiv>
     );
@@ -128,6 +131,7 @@ const StyledDiv = styled.div`
     .wrapper {
         width: 40%;
         min-width: 25rem;
+        margin-top: 2rem;
     }
 
     .ui.card {
@@ -143,6 +147,10 @@ const StyledDiv = styled.div`
 
     .ui.card .content {
         padding: 1.5rem 2rem;
+    }
+
+    .ui.card .content:first-child {
+        padding-bottom: 0;
     }
 
     .row {

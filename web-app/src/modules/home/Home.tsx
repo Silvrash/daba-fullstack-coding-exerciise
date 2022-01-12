@@ -2,6 +2,7 @@ import { Children } from "react";
 import { Card, Image } from "semantic-ui-react";
 import styled from "styled-components";
 import Logo from "../_shared/assets/logo.png";
+import { FooterInfo } from "../_shared/components";
 import { useCurrentUser } from "../_shared/hooks";
 import MenuItem from "./MenuItem";
 import ProfileMenuItem from "./ProfileMenuItem";
@@ -42,13 +43,16 @@ const Home: React.FC = () => {
             <div className="page-title">Personal Info</div>
             <div className="page-caption">Basic info, like your name and photo</div>
 
-            <Card>
-                <ProfileMenuItem />
+            <div className="wrapper">
+                <Card>
+                    <ProfileMenuItem />
 
-                {Children.toArray(
-                    data.map((item) => <MenuItem title={item.title} value={item.value} />)
-                )}
-            </Card>
+                    {Children.toArray(
+                        data.map((item) => <MenuItem title={item.title} value={item.value} />)
+                    )}
+                </Card>
+                <FooterInfo />
+            </div>
         </StyledDiv>
     );
 };
@@ -62,9 +66,14 @@ const StyledDiv = styled.div`
     flex-direction: column;
     align-items: center;
 
+    .wrapper {
+        width: 40%;
+    }
+
     .ui.card {
         background: transparent;
-        width: 40%;
+        min-width: 25rem;
+        width: 100%;
         border-radius: 0.5rem;
         padding: 0.5rem 0;
     }
@@ -95,6 +104,7 @@ const StyledDiv = styled.div`
         font-family: Noto Sans;
         font-style: normal;
         font-size: 2rem;
+        margin-top: 2rem;
         color: ${({ theme }) => theme.darkText};
     }
 
@@ -127,6 +137,14 @@ const StyledDiv = styled.div`
         margin-left: 0.5rem;
         font-weight: 600;
         font-size: 1rem;
+    }
+
+    @media screen and (max-width: 981px) {
+        padding: 2rem 2rem;
+
+        .ui.card {
+            width: 100%;
+        }
     }
 `;
 

@@ -2,6 +2,7 @@ import { Button, Card, Form, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import Footer from "../auth/Footer";
 import Logo from "../_shared/assets/logo.png";
+import { FooterInfo } from "../_shared/components";
 import { useLogin } from "./hooks/useLogin";
 
 const LogIn: React.FC = () => {
@@ -9,52 +10,56 @@ const LogIn: React.FC = () => {
 
     return (
         <StyledDiv>
-            <Card>
-                <Card.Content>
-                    <div className="row">
-                        <img src={Logo} alt="logo" className="logo" />
-                        <div className="logoText"> devchallenges</div>
-                    </div>
-                    <div className="title">Login</div>
+            <div className="wrapper">
+                <Card>
+                    <Card.Content>
+                        <div className="row">
+                            <img src={Logo} alt="logo" className="logo" />
+                            <div className="logoText"> devchallenges</div>
+                        </div>
+                        <div className="title">Login</div>
 
-                    <Form onSubmit={state.handleSubmit}>
-                        <Form.Input
-                            name="email"
-                            value={state.email}
-                            onChange={state.handleChange}
-                            error={state.getError('email')}
-                            icon={<Icon name="mail" color="grey" />}
-                            iconPosition="left"
-                            placeholder="Email"
-                        />
-                        <Form.Input
-                            name="password"
-                            value={state.password}
-                            onChange={state.handleChange}
-                            placeholder="Password"
-                            icon={<Icon name="lock" color="grey" />}
-                            iconPosition="left"
-                            error={state.getError('password')}
-                            type="password"
-                        />
+                        <Form onSubmit={state.handleSubmit} autoComplete="none">
+                            <Form.Input
+                                name="email"
+                                value={state.email}
+                                onChange={state.handleChange}
+                                error={state.getError("email")}
+                                icon={<Icon name="mail" color="grey" />}
+                                iconPosition="left"
+                                placeholder="Email"
+                            />
+                            <Form.Input
+                                name="password"
+                                value={state.password}
+                                onChange={state.handleChange}
+                                placeholder="Password"
+                                icon={<Icon name="lock" color="grey" />}
+                                iconPosition="left"
+                                error={state.getError("password")}
+                                autoComplete="new-password"
+                                type="password"
+                            />
 
-                        <Button
-                            fluid
-                            color="blue"
-                            type='submit'
-                            loading={state.isSubmitting}
-                            disabled={state.isSubmitting}
-                        >
-                            Start coding now
-                        </Button>
-                    </Form>
-                    <Footer
-                        membershipText="Don't have an account yet?"
-                        linkText="Register"
-                        handleLink={state.toSignUp}
-                    />
-                </Card.Content>
-            </Card>
+                            <Button
+                                fluid
+                                color="blue"
+                                type="submit"
+                                loading={state.isSubmitting}
+                                disabled={state.isSubmitting}
+                            >
+                                Start coding now
+                            </Button>
+                        </Form>
+                        <Footer
+                            membershipText="Don't have an account yet?"
+                            linkText="Register"
+                            handleLink={state.toSignUp}
+                        />
+                    </Card.Content>
+                </Card>
+                <FooterInfo />
+            </div>
         </StyledDiv>
     );
 };
@@ -82,9 +87,13 @@ const StyledDiv = styled.div`
         font-size: 1rem;
     }
 
+    .wrapper {
+        width: 25.125rem;
+    }
+
     .ui.card {
         background: transparent;
-        width: 25.125rem;
+        width: 100%;
         padding: 1rem 2rem;
         border-radius: 1rem;
     }

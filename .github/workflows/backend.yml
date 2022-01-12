@@ -59,9 +59,17 @@ jobs:
               run: cd backend && yarn build
  
             - uses: akhileshns/heroku-deploy@v3.12.12
-              # if: github.ref != 'refs/heads/master'
+              if: github.ref == 'refs/heads/master'
               with:
                   heroku_api_key: "${{secrets.HEROKU_API_KEY}}"
-                  heroku_app_name: benspace
                   heroku_email: barkoafrasah@gmail.coms
-                  appdir: backend/build
+                  justlogin: true
+            
+            - name: Push to Heroku
+              if: github.ref == 'refs/heads/master'
+              run: >
+                  git config --global user.email "barkoafrasah@gmail.com"
+
+                  git config --global user.name "CI"
+                  
+                  cd backend/build && git init && heroku git:remote -a benspace && git add . && git commit -am "make it better" && git push -f heroku master

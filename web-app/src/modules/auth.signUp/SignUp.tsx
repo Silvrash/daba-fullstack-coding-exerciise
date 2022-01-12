@@ -2,6 +2,7 @@ import { Button, Card, Form, Icon } from "semantic-ui-react";
 import styled from "styled-components";
 import Footer from "../auth/Footer";
 import Logo from "../_shared/assets/logo.png";
+import { FooterInfo } from "../_shared/components";
 import { useSignUp } from "./hooks/useSignUp";
 
 const SignUp: React.FC = () => {
@@ -9,56 +10,62 @@ const SignUp: React.FC = () => {
 
     return (
         <StyledDiv>
-            <Card>
-                <Card.Content>
-                    <div className="row">
-                        <img src={Logo} alt="logo" className="logo" />
-                        <div className="logoText"> devchallenges</div>
-                    </div>
+            <div className="wrapper">
+                <Card>
+                    <Card.Content>
+                        <div className="row">
+                            <img src={Logo} alt="logo" className="logo" />
+                            <div className="logoText"> devchallenges</div>
+                        </div>
 
-                    <div className="title">Join thousands of learners from around the world</div>
-                    <div className="caption">
-                        Master web development by making real-life projects. There are multiple
-                        paths for your to choose
-                    </div>
-                    <Form onSubmit={state.handleSubmit}>
-                        <Form.Input
-                            name="email"
-                            value={state.email}
-                            onChange={state.handleChange}
-                            icon={<Icon name="mail" color="grey" />}
-                            iconPosition="left"
-                            error={state.getError('email')}
-                            placeholder="Email"
-                        />
-                        <Form.Input
-                            name="password"
-                            value={state.password}
-                            onChange={state.handleChange}
-                            placeholder="Password"
-                            icon={<Icon name="lock" color="grey" />}
-                            iconPosition="left"
-                            error={state.getError('password')}
-                            type="password"
-                        />
+                        <div className="title">
+                            Join thousands of learners from around the world
+                        </div>
+                        <div className="caption">
+                            Master web development by making real-life projects. There are multiple
+                            paths for your to choose
+                        </div>
+                        <Form onSubmit={state.handleSubmit} autoComplete="none">
+                            <Form.Input
+                                name="email"
+                                value={state.email}
+                                onChange={state.handleChange}
+                                icon={<Icon name="mail" color="grey" />}
+                                iconPosition="left"
+                                error={state.getError("email")}
+                                placeholder="Email"
+                            />
+                            <Form.Input
+                                name="password"
+                                value={state.password}
+                                onChange={state.handleChange}
+                                placeholder="Password"
+                                icon={<Icon name="lock" color="grey" />}
+                                iconPosition="left"
+                                error={state.getError("password")}
+                                type="password"
+                                autoComplete="new-password"
+                            />
 
-                        <Button
-                            fluid
-                            color="blue"
-                            type='submit'
-                            loading={state.isSubmitting}
-                            disabled={state.isSubmitting}
-                        >
-                            Start coding now
-                        </Button>
-                    </Form>
-                    <Footer
-                        membershipText="Already a member?"
-                        linkText="Login"
-                        handleLink={state.toLogin}
-                    />
-                </Card.Content>
-            </Card>
+                            <Button
+                                fluid
+                                color="blue"
+                                type="submit"
+                                loading={state.isSubmitting}
+                                disabled={state.isSubmitting}
+                            >
+                                Start coding now
+                            </Button>
+                        </Form>
+                        <Footer
+                            membershipText="Already a member?"
+                            linkText="Login"
+                            handleLink={state.toLogin}
+                        />
+                    </Card.Content>
+                </Card>
+                <FooterInfo />
+            </div>
         </StyledDiv>
     );
 };
@@ -86,9 +93,13 @@ const StyledDiv = styled.div`
         font-size: 1rem;
     }
 
+    .wrapper {
+        width: 25.125rem;
+    }
+
     .ui.card {
         background: transparent;
-        width: 25.125rem;
+        width: 100%;
         padding: 1rem 2rem;
         border-radius: 1rem;
     }
