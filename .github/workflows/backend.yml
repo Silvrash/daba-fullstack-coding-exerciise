@@ -52,8 +52,8 @@ jobs:
             - name: Install dependencies
               run: cd backend && yarn
  
-            - name: Run test
-              run: cd backend && yarn test
+            # - name: Run test
+            #   run: cd backend && yarn test
  
             - name: Build
               run: cd backend && yarn build
@@ -64,6 +64,8 @@ jobs:
                   heroku_api_key: "${{secrets.HEROKU_API_KEY}}"
                   heroku_app_name: benspace
                   heroku_email: barkoafrasah@gmail.coms
-                  appdir: backend/build
-                  dontuseforce: 1
-                  branch: master
+                  justlogin: true
+            
+            - name: Push to Heroku
+              run: >
+                  cd backend/build && git init && heroku git:remote -a benspace && git add . && git commit -am "make it better" && git push -f heroku master

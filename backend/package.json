@@ -10,6 +10,7 @@
     "dev": "nodemon --config nodemon.json src/index.ts",
     "schema": "graphql-codegen --config codegen.yml",
     "build": "webpack --config webpack.config.js",
+    "heroku-postbuild": "echo Skip build on Heroku",
     "test": "jest --detectOpenHandles --runInBand --logHeapUsage",
     "format": "prettier --write .",
     "migrate:make": "NODE_ENV=development knex migrate:make"

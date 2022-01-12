@@ -46,7 +46,11 @@ module.exports = (env) => {
 					/** copy compiled migrations */
 					{ from: './dist/_migrations', to: `_migrations` },
 					{ from: './src/schemas', to: `schemas` },
-					{ from: 'package.json', to: 'package.json' },
+					{ from: 'Procfile' },
+					// { from: 'Dockerfile' },
+					// { from: 'docker-compose.yml' },
+					{ from: 'package.json' },
+					// { from: 'app.json' },
 					{ from: envFile, to: '.env', toType: 'file' },
 				],
 			}),
