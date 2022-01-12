@@ -12,8 +12,8 @@
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
-      Solution
+    <a href="https://drive.google.com/file/d/1MVb9Yukt3f3Em3CMlP8LtUa1tcHKOr-S/view?usp=sharing">
+      Presentation
     </a>
     <span> | </span>
     <a href="https://benspace.herokuapp.com/graphql">
